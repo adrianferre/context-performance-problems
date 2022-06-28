@@ -1,10 +1,13 @@
-interface ILabelsCount {
-  count: number;
-}
+import { memo } from "react";
 
-function LabelsCount({ count }: ILabelsCount) {
+import { useLabels } from "../LabelsProvider";
+
+function LabelsCount() {
   console.log("Render LabelsCount");
-  return <h1>{`I have ${count} labels in my App`}</h1>;
+
+  const [labels] = useLabels();
+
+  return <h1>{`I have ${labels.length} labels in my App`}</h1>;
 }
 
-export default LabelsCount;
+export default memo(LabelsCount);

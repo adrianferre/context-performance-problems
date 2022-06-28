@@ -1,35 +1,17 @@
-import { useState } from "react";
+import { memo } from "react";
 
-const LABELS = [
-  "Vehicle Line Center",
-  "Curb",
-  "Building",
-  "Transition",
-  "Road sign",
-  "Traffic Light",
-];
+import { useLabels } from "../LabelsProvider";
 
 function LabelCreator() {
   console.log("Render LabelCreator");
-  const [labels, setLabels] = useState<string[]>([]);
 
-  function handleAddLabel() {
-    setLabels((oldLabels) => [
-      ...oldLabels,
-      LABELS[oldLabels.length % LABELS.length],
-    ]);
-  }
+  const [, onAddLabel] = useLabels();
 
   return (
     <div>
-      <button onClick={handleAddLabel}>{"+1"}</button>
-      <ol>
-        {labels.map((label) => (
-          <li key={label}>{label}</li>
-        ))}
-      </ol>
+      <button onClick={onAddLabel}>{"+1"}</button>
     </div>
   );
 }
 
-export default LabelCreator;
+export default memo(LabelCreator);

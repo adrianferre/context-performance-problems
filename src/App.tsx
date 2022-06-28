@@ -1,13 +1,20 @@
 import Title from "./components/Title";
 import LabelCreator from "./components/LabelCreator";
+import LabelsCount from "./components/LabelsCount";
+
+import LabelsProvider from "./LabelsProvider";
 
 function App() {
   console.log("Render App");
+
   return (
-    <div>
-      <Title />
-      <LabelCreator />
-    </div>
+    <LabelsProvider>
+      <div>
+        <Title />
+        <LabelsCount />
+        <LabelCreator />
+      </div>
+    </LabelsProvider>
   );
 }
 
