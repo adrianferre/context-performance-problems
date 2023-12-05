@@ -1,20 +1,20 @@
 import Title from "./components/Title";
 import LabelCreator from "./components/LabelCreator";
-import LabelsCount from "./components/LabelsCount";
+import LabelsList from "./components/LabelsList";
 
-import LabelsProvider from "./LabelsProvider";
+import GlobalProvider from "./GlobalProvider";
 
 function App() {
   console.log("Render App");
 
   return (
-    <LabelsProvider>
+    <GlobalProvider>
       <div>
         <Title />
-        <LabelsCount />
         <LabelCreator />
+        <LabelsList />
       </div>
-    </LabelsProvider>
+    </GlobalProvider>
   );
 }
 

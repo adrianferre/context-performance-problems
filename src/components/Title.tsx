@@ -1,8 +1,13 @@
-import { memo } from "react";
+import { useGlobalContext } from "../GlobalProvider";
 
 function Title() {
   console.log("Render Title");
-  return <h1>{"This is the labels App!"}</h1>;
+  const { user } = useGlobalContext();
+  return (
+    <h1>{`This is the GlobalProvider App of the amazing "${
+      user.firstName + " " + user.lastName
+    }" (Thanks for the idea for this demo)`}</h1>
+  );
 }
 
-export default memo(Title);
+export default Title;

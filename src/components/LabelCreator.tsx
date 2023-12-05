@@ -1,11 +1,9 @@
-import { memo } from "react";
-
-import { useLabels } from "../LabelsProvider";
+import { useGlobalContext } from "../GlobalProvider";
 
 function LabelCreator() {
   console.log("Render LabelCreator");
 
-  const [, onAddLabel] = useLabels();
+  const { onAddLabel } = useGlobalContext();
 
   return (
     <div>
@@ -14,4 +12,4 @@ function LabelCreator() {
   );
 }
 
-export default memo(LabelCreator);
+export default LabelCreator;
